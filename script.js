@@ -5,6 +5,50 @@ title:"El árbol después de la tormenta",
 text:"Un árbol quedó destrozado después de una tormenta. Muchas ramas se rompieron y parecía que no sobreviviría. Pero meses después brotaron nuevas hojas. La tormenta no lo destruyó; lo hizo más fuerte."
 },
 {
+title:"La puerta cerrada",
+text:"Un hombre se quejaba porque una puerta se había cerrado en su vida. Con el tiempo descubrió que esa puerta evitó que entrara a un lugar que no era bueno para él."
+},
+{
+title:"El reloj detenido",
+text:"Un reloj se detuvo por un momento, pero después volvió a funcionar. La vida también tiene pausas; no significa que todo haya terminado."
+},
+{
+title:"El jardinero",
+text:"Un jardinero podaba sus plantas con cuidado. Parecía cruel cortar las ramas, pero gracias a eso las flores crecían más fuertes."
+},
+{
+title:"La nube",
+text:"Una nube oscureció el cielo por horas. Sin embargo, el sol seguía allí detrás de ella."
+},
+{
+title:"La barca",
+text:"Una barca en el mar enfrentó olas muy fuertes, pero el capitán sabía que la tormenta siempre termina."
+},
+{
+title:"El niño y la piedra",
+text:"Un niño tropezó con una piedra en el camino. En lugar de enojarse, la movió para que nadie más cayera."
+},
+{
+title:"La cicatriz",
+text:"Un hombre escondía su cicatriz. Con el tiempo entendió que esa marca era la prueba de que había sobrevivido."
+},
+{
+title:"La vela",
+text:"Una sola vela puede iluminar una habitación oscura. A veces una pequeña esperanza cambia todo."
+},
+{
+title:"El camino largo",
+text:"Un viajero caminó kilómetros pensando que no llegaría. Cuando miró atrás, se dio cuenta de lo lejos que ya había avanzado."
+},
+{
+title:"La tormenta inesperada",
+text:"Una tormenta obligó a un campesino a detener su trabajo. Al día siguiente la lluvia había salvado su cosecha."
+},
+{
+title:"El puente",
+text:"Un hombre pensó que no podría cruzar el río. Pero al avanzar un poco encontró un puente que no había visto."
+},
+{
 title:"El camino cerrado",
 text:"Un hombre llegó a un muro en su camino y pensó que su viaje había terminado. Al mirar alrededor descubrió un sendero nuevo. Muchas veces los finales son el inicio de algo diferente."
 },
