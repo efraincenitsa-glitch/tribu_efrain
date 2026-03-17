@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Citas Bíblicas para Superar Problemas Personales</title>
+  <style>
+    :root{
+      --bg:#0f172a; --panel:#111827; --card:#1f2937;
+      --muted:#94a3b8; --text:#e5e7eb; --accent:#22c55e; --accent-2:#38bdf8;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;
+      background:linear-gradient(180deg,#0b132b 0%,#1c2541 60%,#3a506b 100%); color:var(--text);}
+    header{padding:28px 20px 10px; max-width:1100px; margin:0 auto;}
+    h1{margin:0 0 8px; font-size:clamp(1.4rem, 2vw, 2rem);}
+    .subtitle{color:var(--muted); margin:0 0 20px; font-size:0.98rem}
+    .panel{background:rgba(17,24,39,.7); backdrop-filter:saturate(1.2) blur(6px);
+      border:1px solid rgba(148,163,184,.2); border-radius:16px; padding:16px; display:grid; gap:12px;}
+    .row{display:flex; gap:12px; flex-wrap:wrap}
+    input, select{background:var(--card); border:1px solid rgba(148,163,184,.25);
+      color:var(--text); padding:10px 12px; border-radius:12px; outline:none;}
+    input:focus, select:focus{border-color:var(--accent-2); box-shadow:0 0 0 3px rgba(56,189,248,.2)}
+    input.search{flex:1; min-width:240px}
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{background:rgba(56,189,248,.12); border:1px solid rgba(56,189,248,.25);
+      color:#e0f2fe; padding:6px 10px; border-radius:999px; cursor:pointer; font-size:0.85rem;}
+    .chip.active{background:rgba(34,197,94,.18); border-color:rgba(34,197,94,.45); color:#dcfce7}
+    main{max-width:1100px; margin:16px auto 60px; padding:0 20px}
+    .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px}
+    .card{background:var(--card); border:1px solid rgba(148,163,184,.2); border-radius:14px;
+      padding:14px; display:flex; flex-direction:column; gap:10px; min-height:180px;}
+    .tags{display:flex; gap:6px; flex-wrap:wrap}
+    .tag{background:rgba(34,197,94,.15); color:#dcfce7; border:1px solid rgba(34,197,94,.35);
+      border-radius:999px; padding:3px 8px; font-size:.78rem;}
+    .testamento{background:rgba(99,102,241,.18); color:#e0e7ff; border-color:rgba(99,102,241,.35)}
+    .ref{font-weight:600; color:#e2e8f0}
+    .ref a{color:#93c5fd; text-decoration:underline; text-underline-offset:2px}
+    .texto{color:#e5e7eb; line-height:1.45}
+    .acciones{display:flex; align-items:center; justify-content:space-between; gap:6px}
+    .btn{background:linear-gradient(135deg, #22c55e, #16a34a); color:white; border:none;
+      border-radius:10px; padding:8px 10px; cursor:pointer; font-weight:600;}
+    .btn:hover{filter:brightness(1.05)}
+    .count{color:var(--muted); font-size:.9rem}
+    footer{max-width:1100px; margin:26px auto 60px; padding:0 20px; color:var(--muted); font-size:.92rem}
+    .notice{background:rgba(148,163,184,.12); border:1px dashed rgba(148,163,184,.35);
+      padding:10px 12px; border-radius:12px}
+    .link{color:#7dd3fc; text-decoration:underline; text-underline-offset:2px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Citas Bíblicas para Superar Problemas Personales</h1>
+    <p class="subtitle">
+      Usa los filtros para encontrar lo que necesitas.
+    </p>
+    <div class="panel">
+      <div class="row">
+        <input class="search" type="search" placeholder="Buscar por palabra (p. ej. 'temor', 'paz', 'fuerza', 'perdón')…">
+        <select class="sel-testamento">
+          <option value="">Todos los Testamentos</option>
+          <option value="Antiguo">Antiguo Testamento</option>
+          <option value="Nuevo">Nuevo Testamento</option>
+        </select>
+        <select class="sel-tema">
+          <option value="">Todos los Temas</option>
+          <option>Ansiedad</option>
+          <option>Miedo</option>
+          <option>Esperanza</option>
+          <option>Fuerza</option>
+          <option>Consuelo / Duelo</option>
+          <option>Perdón y Culpa</option>
+          <option>Provisión</option>
+          <option>Sabiduría / Decisiones</option>
+          <option>Tentación</option>
+          <option>Soledad</option>
+          <option>Sanidad</option>
+          <option>Identidad en Cristo</option>
+          <option>Confianza en Dios</option>
+          <option>Oración</option>
+          <option>Perseverancia</option>
+          <option>Gozo / Paz</option>
+        </select>
+      </div>
+      <div class="chips">
+        <span class="chip" data-tema="Ansiedad">Ansiedad</span>
+        <span class="chip" data-tema="Miedo">Miedo</span>
+        <span class="chip" data-tema="Esperanza">Esperanza</span>
+        <span class="chip" data-tema="Perdón y Culpa">Perdón</span>
+        <span class="chip" data-tema="Provisión">Provisión</span>
+        <span class="chip" data-tema="Sabiduría / Decisiones">Decisiones</span>
+        <span class="chip" data-tema="Tentación">Tentación</span>
+        <span class="chip" data-tema="Consuelo / Duelo">Duelo</span>
+      </div>
+      <div class="count">Mostrando <span class="num">0</span> citas</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid" id="grid"></section>
+  </main>
+
+  <footer>
+    <div class="notice">
+      <p><strong>Nota:</strong> Los textos están <em>adaptados</em> a uso católico (sustituyendo “el Señor”), preservando el sentido del pasaje. Para consultar el texto exacto en una traducción católica aprobada, haz clic en la referencia.</p>
+      <p>Enlaces por defecto: <a class="link" href="https://www.vatican.va/archive/bible" target="_blank" rel="noopener">Vatican / Vulgata</a> (latín) y <a class="link" href="https://www.bibliacatolica.com.br/" target="_blank" rel="noopener">Biblia Católica Online</a> (varias traducciones católicas). Puedo cambiarlos a BIA, CEE o Biblia de Jerusalén si lo prefieres.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Para enlaces: intenta abrir en Biblia Católica Online (o ajusta a tu sitio preferido)
+    function urlCatolica(ref){
+      // sitio genérico de consulta católica (no copia texto, solo enlaza)
+      const q = encodeURIComponent(ref);
+      return `https://www.bibliacatolica.com.br/busca/?q=${q}`;
+    }
+
+    // === Citas (>= 60) con formulación apta para católicos (sin “Jehová”) ===
+    // ref, texto(adaptado), testamento, temas[]
+    const CITAS = [
+      // ===== ANTIGUO TESTAMENTO =====
+      {ref:"Josué 1:9", texto:"Mira que te mando que te esfuerces y seas valiente; no temas ni desfallezcas, porque el Señor tu Dios está contigo dondequiera que vayas.", testamento:"Antiguo", temas:["Miedo","Fuerza","Confianza en Dios"]},
+      {ref:"Deuteronomio 31:6", texto:"Sean fuertes y valientes; no teman ni se asusten, porque el Señor tu Dios va contigo; no te dejará ni te abandonará.", testamento:"Antiguo", temas:["Miedo","Esperanza","Confianza en Dios"]},
+      {ref:"Salmo 23:1–4", texto:"El Señor es mi pastor: nada me falta… Aunque camine por cañadas oscuras, nada temo, porque tú vas conmigo.", testamento:"Antiguo", temas:["Miedo","Provisión","Consuelo / Duelo","Confianza en Dios"]},
+      {ref:"Salmo 27:1", texto:"El Señor es mi luz y mi salvación, ¿a quién temeré? El Señor es la defensa de mi vida, ¿quién me hará temblar?", testamento:"Antiguo", temas:["Miedo","Fuerza","Confianza en Dios"]},
+      {ref:"Salmo 34:17–18", texto:"Claman los justos y el Señor los escucha, y los libra de sus angustias. El Señor está cerca de los quebrantados de corazón.", testamento:"Antiguo", temas:["Consuelo / Duelo","Ansiedad","Oración"]},
+      {ref:"Salmo 37:4–5", texto:"Deléitate en el Señor, y Él concederá los deseos de tu corazón. Encomienda tu camino al Señor, confía en Él, y Él actuará.", testamento:"Antiguo", temas:["Esperanza","Confianza en Dios","Oración"]},
+      {ref:"Salmo 46:1–2", texto:"Dios es nuestro refugio y fortaleza, auxilio siempre a mano en el peligro. Por eso no tememos…", testamento:"Antiguo", temas:["Miedo","Fuerza","Ansiedad"]},
+      {ref:"Salmo 55:22", texto:"Descarga en el Señor tu carga y Él te sostendrá; no dejará caído para siempre al justo.", testamento:"Antiguo", temas:["Ansiedad","Confianza en Dios"]},
+      {ref:"Salmo 62:5–8", texto:"Descansa solo en Dios, alma mía, porque de Él me viene la esperanza… Él es mi roca y mi salvación.", testamento:"Antiguo", temas:["Ansiedad","Confianza en Dios","Gozo / Paz"]},
+      {ref:"Salmo 73:26", texto:"Mi carne y mi corazón desfallecen; la roca de mi corazón y mi herencia es Dios por siempre.", testamento:"Antiguo", temas:["Fuerza","Esperanza"]},
+      {ref:"Salmo 91:1–2", texto:"El que habita al amparo del Altísimo descansa a la sombra del Todopoderoso. Digo al Señor: ‘Tú eres mi refugio y fortaleza’.", testamento:"Antiguo", temas:["Miedo","Confianza en Dios","Protección"]},
+      {ref:"Salmo 121:1–2", texto:"Levanto mis ojos a los montes: ¿de dónde me vendrá el auxilio? Mi auxilio viene del Señor, que hizo cielo y tierra.", testamento:"Antiguo", temas:["Confianza en Dios","Ansiedad","Esperanza"]},
+      {ref:"Salmo 147:3", texto:"Él sana a los de corazón destrozado y venda sus heridas.", testamento:"Antiguo", temas:["Consuelo / Duelo","Sanidad"]},
+      {ref:"Proverbios 3:5–6", texto:"Confía en el Señor de todo corazón y no te apoyes en tu propia prudencia; reconócelo en todos tus caminos y Él enderezará tus sendas.", testamento:"Antiguo", temas:["Sabiduría / Decisiones","Confianza en Dios"]},
+      {ref:"Proverbios 12:25", texto:"La congoja abate el corazón del hombre, pero una buena palabra lo alegra.", testamento:"Antiguo", temas:["Ansiedad","Gozo / Paz"]},
+      {ref:"Proverbios 18:10", texto:"Torre fuerte es el nombre del Señor; a Él corre el justo y queda a salvo.", testamento:"Antiguo", temas:["Miedo","Protección","Confianza en Dios"]},
+      {ref:"Proverbios 4:23", texto:"Por encima de todo, cuida tu corazón, porque de él brota la vida.", testamento:"Antiguo", temas:["Sabiduría / Decisiones","Tentación"]},
+      {ref:"Isaías 40:31", texto:"Los que esperan en el Señor renuevan sus fuerzas: alzan el vuelo como águilas; corren y no se cansan; caminan y no se fatigan.", testamento:"Antiguo", temas:["Fuerza","Esperanza"]},
+      {ref:"Isaías 41:10", texto:"No temas, porque yo estoy contigo; no te angusties, porque yo soy tu Dios: te fortalezco, te auxilio, te sostengo con mi diestra victoriosa.", testamento:"Antiguo", temas:["Miedo","Fuerza","Confianza en Dios"]},
+      {ref:"Isaías 43:2", texto:"Cuando pases por las aguas, yo estaré contigo; y los ríos no te anegarán; cuando pases por el fuego, no te quemarás.", testamento:"Antiguo", temas:["Miedo","Consuelo / Duelo","Protección"]},
+      {ref:"Jeremías 29:11", texto:"Yo conozco los planes que tengo para ustedes —oráculo del Señor— planes de paz y no de desgracia, para darles un futuro y una esperanza.", testamento:"Antiguo", temas:["Esperanza","Confianza en Dios"]},
+      {ref:"Jeremías 33:3", texto:"Invócame y te responderé; te mostraré cosas grandes y ocultas que no conoces.", testamento:"Antiguo", temas:["Oración","Sabiduría / Decisiones"]},
+      {ref:"Lamentaciones 3:22–23", texto:"El amor del Señor no se acaba y su misericordia no se agota; se renuevan cada mañana: ¡grande es tu fidelidad!", testamento:"Antiguo", temas:["Esperanza","Consuelo / Duelo"]},
+      {ref:"Nahúm 1:7", texto:"El Señor es bueno, es una fortaleza en el día de la angustia; conoce a los que en Él se refugian.", testamento:"Antiguo", temas:["Ansiedad","Confianza en Dios"]},
+      {ref:"Sofonías 3:17", texto:"El Señor tu Dios está en medio de ti, valiente salvador; Él se goza y se complace en ti, te renueva con su amor.", testamento:"Antiguo", temas:["Esperanza","Identidad en Cristo"]},
+      {ref:"Salmo 30:5", texto:"Al caer la tarde nos visita el llanto, pero por la mañana llega la alegría.", testamento:"Antiguo", temas:["Consuelo / Duelo","Esperanza","Gozo / Paz"]},
+      {ref:"Salmo 32:8", texto:"Yo te instruiré y te enseñaré el camino que debes seguir; fijaré en ti mis ojos.", testamento:"Antiguo", temas:["Sabiduría / Decisiones","Confianza en Dios"]},
+      {ref:"Salmo 16:8", texto:"Tengo siempre presente al Señor; con Él a mi derecha, no vacilo.", testamento:"Antiguo", temas:["Confianza en Dios","Miedo"]},
+      {ref:"Salmo 103:2–5", texto:"Bendice, alma mía, al Señor… Él perdona todas tus culpas, cura todas tus dolencias, colma de bienes tu vida.", testamento:"Antiguo", temas:["Perdón y Culpa","Sanidad","Provisión"]},
+      {ref:"Salmo 25:4–5", texto:"Muéstrame, Señor, tus caminos; enséñame tus sendas. Guíame en tu verdad y enséñame, porque tú eres el Dios de mi salvación.", testamento:"Antiguo", temas:["Sabiduría / Decisiones","Oración"]},
+      {ref:"Salmo 37:7", texto:"Guarda silencio ante el Señor y espera en Él.", testamento:"Antiguo", temas:["Perseverancia","Esperanza","Gozo / Paz"]},
+      {ref:"Salmo 112:7", texto:"No teme las malas noticias; su corazón está firme, confiado en el Señor.", testamento:"Antiguo", temas:["Miedo","Confianza en Dios"]},
+      {ref:"Isaías 26:3", texto:"Tú conservas la paz a quien en ti confía, porque en ti ha puesto su esperanza.", testamento:"Antiguo", temas:["Gozo / Paz","Ansiedad"]},
+      {ref:"Isaías 54:10", texto:"Aunque se muevan los montes y tiemblen las colinas, mi amor no se apartará de ti ni vacilará mi alianza de paz —dice el Señor—.", testamento:"Antiguo", temas:["Esperanza","Consuelo / Duelo","Gozo / Paz"]},
+      {ref:"Jeremías 17:7–8", texto:"Bendito el hombre que confía en el Señor… será como árbol plantado junto al agua, que no teme cuando llega el calor.", testamento:"Antiguo", temas:["Confianza en Dios","Perseverancia"]},
+      {ref:"Habacuc 3:17–19", texto:"Aunque la higuera no florezca… con todo yo me alegraré en el Señor; el Señor es mi fuerza.", testamento:"Antiguo", temas:["Perseverancia","Esperanza","Fuerza"]},
+      {ref:"Salmo 139:23–24", texto:"Examíname, oh Dios, y conoce mi corazón; guíame por el camino eterno.", testamento:"Antiguo", temas:["Perdón y Culpa","Sabiduría / Decisiones"]},
+      {ref:"Salmo 40:1–3", texto:"Pacientemente esperé en el Señor… me sacó de la fosa de la desdicha… puso en mi boca un cántico nuevo.", testamento:"Antiguo", temas:["Consuelo / Duelo","Perseverancia","Gozo / Paz"]},
+      {ref:"Isaías 58:11", texto:"El Señor te guiará siempre; saciará tu alma en sequías… serás como jardín bien regado.", testamento:"Antiguo", temas:["Provisión","Esperanza"]},
+      {ref:"Proverbios 16:3", texto:"Pon tus obras en manos del Señor, y tus proyectos se afianzarán.", testamento:"Antiguo", temas:["Sabiduría / Decisiones","Confianza en Dios"]},
+      {ref:"Salmo 9:9–10", texto:"El Señor es refugio en el peligro… quienes conocen tu nombre confían en ti.", testamento:"Antiguo", temas:["Ansiedad","Confianza en Dios","Protección"]},
+      {ref:"Zacarías 4:6", texto:"No por la fuerza ni por el poder, sino por mi Espíritu —dice el Señor—.", testamento:"Antiguo", temas:["Fuerza","Perseverancia"]},
+      {ref:"Miqueas 7:7–8", texto:"Yo pondré mis ojos en el Señor… aunque me siente en tinieblas, el Señor será mi luz.", testamento:"Antiguo", temas:["Esperanza","Consuelo / Duelo"]},
+
+      // ===== NUEVO TESTAMENTO =====
+      {ref:"Mateo 5:4", texto:"Dichosos los que lloran, porque serán consolados.", testamento:"Nuevo", temas:["Consuelo / Duelo","Esperanza"]},
+      {ref:"Mateo 6:33", texto:"Busquen primero el Reino de Dios y su justicia, y todo lo demás se les dará por añadidura.", testamento:"Nuevo", temas:["Ansiedad","Provisión","Confianza en Dios"]},
+      {ref:"Mateo 7:7", texto:"Pidan y se les dará; busquen y encontrarán; llamen y se les abrirá.", testamento:"Nuevo", temas:["Oración","Esperanza"]},
+      {ref:"Mateo 11:28–30", texto:"Vengan a mí todos los que están cansados y agobiados, y yo los aliviaré… mi yugo es llevadero y mi carga ligera.", testamento:"Nuevo", temas:["Ansiedad","Consuelo / Duelo","Gozo / Paz"]},
+      {ref:"Mateo 19:26", texto:"Para los hombres es imposible, pero para Dios todo es posible.", testamento:"Nuevo", temas:["Esperanza","Confianza en Dios"]},
+      {ref:"Marcos 10:27", texto:"Para los hombres es imposible, pero no para Dios, porque todo es posible para Dios.", testamento:"Nuevo", temas:["Esperanza","Confianza en Dios"]},
+      {ref:"Lucas 1:37", texto:"Porque nada hay imposible para Dios.", testamento:"Nuevo", temas:["Esperanza","Confianza en Dios"]},
+      {ref:"Lucas 12:32", texto:"No teman, pequeño rebaño, porque a su Padre le ha parecido bien darles el Reino.", testamento:"Nuevo", temas:["Miedo","Esperanza","Identidad en Cristo"]},
+      {ref:"Juan 3:16", texto:"Tanto amó Dios al mundo que entregó a su Hijo único, para que todo el que cree en Él no perezca, sino que tenga vida eterna.", testamento:"Nuevo", temas:["Esperanza","Identidad en Cristo"]},
+      {ref:"Juan 6:35", texto:"Yo soy el pan de vida; quien viene a mí no pasará hambre, y quien cree en mí no tendrá sed jamás.", testamento:"Nuevo", temas:["Provisión","Identidad en Cristo","Esperanza"]},
+      {ref:"Juan 10:10", texto:"Yo he venido para que tengan vida y la tengan en abundancia.", testamento:"Nuevo", temas:["Esperanza","Identidad en Cristo","Gozo / Paz"]},
+      {ref:"Juan 14:27", texto:"La paz les dejo, mi paz les doy; no se la doy como la da el mundo. No se turbe su corazón ni se acobarde.", testamento:"Nuevo", temas:["Ansiedad","Miedo","Gozo / Paz"]},
+      {ref:"Juan 16:33", texto:"En el mundo tendrán tribulación, pero ¡ánimo!: yo he vencido al mundo.", testamento:"Nuevo", temas:["Esperanza","Perseverancia","Confianza en Dios"]},
+      {ref:"Hechos 16:31", texto:"Cree en el Señor Jesús y te salvarás tú y tu casa.", testamento:"Nuevo", temas:["Esperanza","Identidad en Cristo"]},
+      {ref:"Romanos 5:1–5", texto:"Justificados por la fe, estamos en paz con Dios… la tribulación produce paciencia; la paciencia, virtud probada; la virtud probada, esperanza.", testamento:"Nuevo", temas:["Perseverancia","Esperanza","Gozo / Paz"]},
+      {ref:"Romanos 8:28", texto:"Sabemos que en todas las cosas interviene Dios para bien de los que lo aman.", testamento:"Nuevo", temas:["Esperanza","Confianza en Dios"]},
+      {ref:"Romanos 8:38–39", texto:"Ni la muerte ni la vida… ni ninguna criatura podrá separarnos del amor de Dios en Cristo Jesús.", testamento:"Nuevo", temas:["Esperanza","Identidad en Cristo","Consuelo / Duelo"]},
+      {ref:"Romanos 12:2", texto:"No se acomoden a este mundo; transfórmense renovando su mente para discernir la voluntad de Dios.", testamento:"Nuevo", temas:["Sabiduría / Decisiones","Tentación"]},
+      {ref:"Romanos 15:13", texto:"Que el Dios de la esperanza los llene de todo gozo y paz en la fe.", testamento:"Nuevo", temas:["Esperanza","Gozo / Paz"]},
+      {ref:"Romanos 15:4", texto:"Todo cuanto fue escrito antes se escribió para nuestra enseñanza, para que, por la paciencia y el consuelo de las Escrituras, mantengamos la esperanza.", testamento:"Nuevo", temas:["Esperanza","Consuelo / Duelo"]},
+      {ref:"1 Corintios 10:13", texto:"Ninguna tentación les ha sobrevenido que no sea humana; fiel es Dios, que no permitirá que sean tentados más de lo que pueden.", testamento:"Nuevo", temas:["Tentación","Perseverancia"]},
+      {ref:"1 Corintios 15:58", texto:"Manténganse firmes e inconmovibles, progresando siempre en la obra del Señor, sabiendo que su trabajo no es vano en el Señor.", testamento:"Nuevo", temas:["Perseverancia","Esperanza"]},
+      {ref:"2 Corintios 4:8–9", texto:"Atribulados en todo, mas no angustiados; perplejos, mas no desesperados; perseguidos, mas no abandonados; derribados, mas no destruidos.", testamento:"Nuevo", temas:["Perseverancia","Esperanza","Consuelo / Duelo"]},
+      {ref:"2 Corintios 5:17", texto:"El que está en Cristo es una nueva creación: lo viejo ha pasado, lo nuevo ha comenzado.", testamento:"Nuevo", temas:["Identidad en Cristo","Esperanza"]},
+      {ref:"2 Corintios 12:9–10", texto:"‘Te basta mi gracia; mi poder se perfecciona en la debilidad’… cuando soy débil, entonces soy fuerte.", testamento:"Nuevo", temas:["Fuerza","Perseverancia","Identidad en Cristo"]},
+      {ref:"Gálatas 6:9", texto:"No nos cansemos de hacer el bien; a su tiempo cosecharemos si no desfallecemos.", testamento:"Nuevo", temas:["Perseverancia","Esperanza"]},
+      {ref:"Efesios 2:8–10", texto:"Por gracia han sido salvados mediante la fe… creados en Cristo Jesús para buenas obras.", testamento:"Nuevo", temas:["Identidad en Cristo","Esperanza"]},
+      {ref:"Efesios 3:20", texto:"A Aquel que es capaz de hacer muchísimo más de lo que pedimos o entendemos…", testamento:"Nuevo", temas:["Esperanza","Oración","Confianza en Dios"]},
+      {ref:"Efesios 6:10–11", texto:"Fortalézcanse en el Señor y en la fuerza de su poder. Revístanse con la armadura de Dios.", testamento:"Nuevo", temas:["Fuerza","Tentación","Perseverancia"]},
+      {ref:"Filipenses 1:6", texto:"El que comenzó en ustedes la buena obra, la llevará a término hasta el día de Cristo Jesús.", testamento:"Nuevo", temas:["Esperanza","Perseverancia"]},
+      {ref:"Filipenses 4:6–7", texto:"No se inquieten por nada; en toda ocasión presenten sus peticiones a Dios… y la paz de Dios custodiará sus corazones y sus mentes.", testamento:"Nuevo", temas:["Ansiedad","Oración","Gozo / Paz"]},
+      {ref:"Filipenses 4:13", texto:"Todo lo puedo en Aquel que me fortalece.", testamento:"Nuevo", temas:["Fuerza","Perseverancia","Identidad en Cristo"]},
+      {ref:"Filipenses 4:19", texto:"Mi Dios proveerá todas sus necesidades conforme a su riqueza en Cristo Jesús.", testamento:"Nuevo", temas:["Provisión","Confianza en Dios"]},
+      {ref:"Colosenses 1:11", texto:"Que sean fortalecidos con todo poder, según la fuerza de su gloria, para toda paciencia y longanimidad.", testamento:"Nuevo", temas:["Fuerza","Perseverancia"]},
+      {ref:"Colosenses 3:15", texto:"Que la paz de Cristo reine en sus corazones.", testamento:"Nuevo", temas:["Gozo / Paz","Ansiedad"]},
+      {ref:"1 Tesalonicenses 5:23–24", texto:"Fiel es el que los llama: Él lo hará.", testamento:"Nuevo", temas:["Esperanza","Perseverancia","Identidad en Cristo"]},
+      {ref:"2 Tesalonicenses 3:16", texto:"Que el mismo Señor de la paz les conceda la paz siempre y en todo lugar.", testamento:"Nuevo", temas:["Gozo / Paz","Ansiedad"]},
+      {ref:"2 Timoteo 1:7", texto:"Dios no nos ha dado un espíritu de cobardía, sino de fortaleza, amor y dominio propio.", testamento:"Nuevo", temas:["Miedo","Fuerza","Identidad en Cristo","Tentación"]},
+      {ref:"2 Timoteo 4:17", texto:"El Señor estuvo a mi lado y me dio fuerzas…", testamento:"Nuevo", temas:["Fuerza","Perseverancia","Confianza en Dios"]},
+      {ref:"Hebreos 4:16", texto:"Acerquémonos con confianza al trono de la gracia para alcanzar misericordia y hallar gracia para un auxilio oportuno.", testamento:"Nuevo", temas:["Oración","Ansiedad","Perdón y Culpa"]},
+      {ref:"Hebreos 6:19", texto:"Tenemos una esperanza como ancla segura y firme del alma.", testamento:"Nuevo", temas:["Esperanza","Consuelo / Duelo"]},
+      {ref:"Hebreos 10:23", texto:"Mantengamos firme la confesión de la esperanza, porque fiel es el que prometió.", testamento:"Nuevo", temas:["Esperanza","Perseverancia"]},
+      {ref:"Hebreos 12:1–2", texto:"Corramos con constancia la carrera… fijos los ojos en Jesús, autor y perfeccionador de la fe.", testamento:"Nuevo", temas:["Perseverancia","Esperanza","Identidad en Cristo"]},
+      {ref:"Hebreos 13:5–6", texto:"No te dejaré ni te abandonaré… El Señor es mi auxilio: no temeré.", testamento:"Nuevo", temas:["Miedo","Confianza en Dios","Provisión"]},
+      {ref:"Santiago 1:2–5", texto:"Tengan por gozo cuando se vean en diversas pruebas… si alguno carece de sabiduría, pídala a Dios.", testamento:"Nuevo", temas:["Sabiduría / Decisiones","Perseverancia","Oración"]},
+      {ref:"Santiago 4:8", texto:"Acérquense a Dios y Él se acercará a ustedes.", testamento:"Nuevo", temas:["Oración","Perdón y Culpa"]},
+      {ref:"Santiago 5:13–15", texto:"¿Está afligido alguno? Que ore… la oración de la fe salvará al enfermo.", testamento:"Nuevo", temas:["Oración","Sanidad","Consuelo / Duelo"]},
+      {ref:"1 Pedro 2:24", texto:"Por sus heridas han sido sanados.", testamento:"Nuevo", temas:["Sanidad","Identidad en Cristo"]},
+      {ref:"1 Pedro 3:14–15", texto:"Si sufren por la justicia, dichosos… glorifiquen en sus corazones a Cristo como Señor.", testamento:"Nuevo", temas:["Miedo","Perseverancia","Sabiduría / Decisiones"]},
+      {ref:"1 Pedro 5:7", texto:"Descarguen en Él todas sus preocupaciones, porque Él cuida de ustedes.", testamento:"Nuevo", temas:["Ansiedad","Confianza en Dios"]},
+      {ref:"1 Pedro 5:10", texto:"El Dios de toda gracia… después de un breve padecer, Él mismo los perfeccionará, afianzará, fortalecerá y consolidará.", testamento:"Nuevo", temas:["Perseverancia","Consuelo / Duelo","Fuerza"]},
+      {ref:"1 Juan 1:9", texto:"Si confesamos nuestros pecados, Él es fiel y justo para perdonarnos y purificarnos.", testamento:"Nuevo", temas:["Perdón y Culpa","Identidad en Cristo"]},
+      {ref:"1 Juan 4:18", texto:"En el amor no hay temor; el amor perfecto expulsa el temor.", testamento:"Nuevo", temas:["Miedo","Identidad en Cristo","Gozo / Paz"]},
+      {ref:"1 Juan 5:14–15", texto:"Tenemos confianza en Él: si pedimos algo conforme a su voluntad, nos escucha.", testamento:"Nuevo", temas:["Oración","Confianza en Dios"]},
+      {ref:"Apocalipsis 21:4", texto:"Enjugará toda lágrima de sus ojos; no habrá ya muerte ni duelo ni llanto ni dolor.", testamento:"Nuevo", temas:["Consuelo / Duelo","Esperanza"]}
+    ];
+
+    const grid = document.getElementById('grid');
+    const search = document.querySelector('.search');
+    const selTest = document.querySelector('.sel-testamento');
+    const selTema = document.querySelector('.sel-tema');
+    const num = document.querySelector('.num');
+    const chips = document.querySelectorAll('.chip');
+
+    function crearCard(c){
+      const card = document.createElement('article');
+      card.className = 'card';
+      card.setAttribute('data-testamento', c.testamento);
+      card.setAttribute('data-temas', c.temas.join(','));
+      card.innerHTML = `
+        <div class="tags">
+          <span class="tag testamento">${c.testamento}</span>
+          ${c.temas.slice(0,3).map(t=>`<span class="tag">${t}</span>`).join('')}
+        </div>
+        <div class="ref">
+          <a href="${urlCatolica(c.ref)}" target="_blank" rel="noopener">${c.ref}</a>
+        </div>
+        <div class="texto">${c.texto}</div>
+        <div class="acciones">
+          <button class="btn btn-copiar">Copiar</button>
+          <span class="count">${c.temas.join(' · ')}</span>
+        </div>
+      `;
+      card.querySelector('.btn-copiar').addEventListener('click', async () => {
+        const contenido = `${c.ref} — ${c.texto}`;
+        try{
+          await navigator.clipboard.writeText(contenido);
+          const btn = card.querySelector('.btn-copiar');
+          const prev = btn.textContent;
+          btn.textContent = '¡Copiado!';
+          setTimeout(()=>btn.textContent = prev, 1200);
+        }catch(e){
+          alert('No se pudo copiar. Copia manualmente:\n\n' + contenido);
+        }
+      });
+      return card;
+    }
+
+    function filtrar(){
+      const q = (search.value || '').toLowerCase().trim();
+      const t = selTest.value;
+      const tema = selTema.value;
+
+      grid.innerHTML='';
+      let visibles = 0;
+
+      CITAS.forEach(c => {
+        const coincideTexto = !q || (c.texto.toLowerCase().includes(q) || c.ref.toLowerCase().includes(q) || c.temas.join(' ').toLowerCase().includes(q));
+        const coincideTest = !t || c.testamento === t;
+        const coincideTema = !tema || c.temas.includes(tema);
+        if (coincideTexto && coincideTest && coincideTema){
+          grid.appendChild(crearCard(c));
+          visibles++;
+        }
+      });
+
+      num.textContent = visibles;
+    }
+
+    search.addEventListener('input', filtrar);
+    selTest.addEventListener('change', filtrar);
+    selTema.addEventListener('change', filtrar);
+    chips.forEach(ch => {
+      ch.addEventListener('click', () => {
+        const tema = ch.getAttribute('data-tema');
+        const active = ch.classList.toggle('active');
+        chips.forEach(x => { if (x!==ch) x.classList.remove('active'); });
+        selTema.value = active ? tema : '';
+        filtrar();
+      });
+    });
+
+    filtrar();
+  </script>
+</body>
+</html>
