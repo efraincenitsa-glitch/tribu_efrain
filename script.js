@@ -53,6 +53,66 @@ title:"El camino cerrado",
 text:"Un hombre llegó a un muro en su camino y pensó que su viaje había terminado. Al mirar alrededor descubrió un sendero nuevo. Muchas veces los finales son el inicio de algo diferente."
 },
 {
+title:"El silencio",
+text:"En medio del ruido de la vida, un momento de silencio permitió que alguien encontrara claridad."
+},
+{
+title:"La montaña",
+text:"Subir la montaña era agotador, pero desde arriba pudo ver paisajes que nunca imaginó."
+},
+{
+title:"El maestro",
+text:"Un maestro dijo: “Los errores no son fracasos, son maestros disfrazados”."
+},
+{
+title:"La llave",
+text:"Una llave pequeña puede abrir una puerta enorme. A veces una decisión simple cambia todo."
+},
+{
+title:"El amanecer",
+text:"Después de una noche muy larga, una persona vio el amanecer y recordó que siempre hay un nuevo comienzo."
+},
+{
+title:"El libro nuevo",
+text:"Cuando un capítulo termina, el libro no se acaba."
+},
+{
+title:"El pescador",
+text:"Un pescador pasó horas sin pescar nada, pero al final del día llegó el pez que esperaba."
+},
+{
+title:"El árbol caído",
+text:"Un árbol cayó en el bosque. Con el tiempo se convirtió en alimento para nueva vida."
+},
+{
+title:"El río tranquilo",
+text:"Después de rápidos peligrosos, el río volvió a ser tranquilo."
+},
+{
+title:"La estrella",
+text:"En la noche más oscura, una estrella puede guiar el camino."
+},
+{
+title:"El alfarero",
+text:"Un alfarero golpeaba la arcilla para darle forma. Sin ese proceso no existiría la vasija."
+},
+{
+title:"El viajero cansado",
+text:"Un viajero descansó bajo un árbol y recuperó fuerzas para continuar."
+},
+{
+title:"La semilla olvidada",
+text:"Una semilla olvidada en la tierra creció con el tiempo."
+},
+{
+title:"El puente roto",
+text:"Un puente roto obligó a alguien a buscar otro camino que resultó ser mejor."
+},
+{
+title:"La lluvia",
+text:"La lluvia parecía molesta, pero permitió que los campos florecieran."
+},
+{
 title:"La lámpara pequeña",
 text:"Una persona caminaba en la oscuridad con una pequeña lámpara. Solo iluminaba unos pocos pasos, pero era suficiente para seguir avanzando."
 },
